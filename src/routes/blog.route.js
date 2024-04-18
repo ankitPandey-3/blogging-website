@@ -28,12 +28,13 @@ router.get('/add-new', (req, res) => {
 
 // Route for handling form submission
 router.post('/create', upload.single('coverImageURL'), async (req, res) => {
+    const imageURL = req.file?.filename ? `/uploads/${req.file?.filename}`:'/uploads/Default.png';
     try {
         const { title, body } = req.body;
         const blog = await blogs.create({
             title: title,
             body: body,
-            coverImageURL: `/uploads/${req.file.filename}`,
+            coverImageURL: imageURL,
             createdBy: req.user._id,
             authorName: req.user.fullName
         })
@@ -79,6 +80,19 @@ router.post('/add-comment/:blogid', async (req, res) => {
     } catch (error) {
         console.error(error);
         return res.status(500).send('Error adding comment');
+    }
+});
+
+router.get('/delete/:blogID', async(req, res) => {
+    try {
+        const deleteInstance = await blogs.findByIdAndDelete(req.params.blogID);
+        if (!deleteInstance) {
+            return res.json('Blog not found or Already deleted');
+        }
+        return res.redirect(`/user/${req.user._id}`);
+    } catch (error) {
+        console.error('Error deleting blog:', error);
+        return res.status(500).json('Internal server error');
     }
 });
 
