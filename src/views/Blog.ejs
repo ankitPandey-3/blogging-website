@@ -4,12 +4,42 @@
 <head>
     <%- include('./partials/head') %>
         <title>Blog</title>
+        <style>
+            /* Styles for navbar */
+            .navbar {
+                width: 100%; /* Full width */
+                position: fixed; /* Fixed position */
+                top: 0; /* Fixed to top */
+                /* z-index: 1000; Ensure it's above other content */
+                /* Add other navbar styles */
+            }
+    
+            /* Styles for image */
+            img {
+                max-width: 100%; /* Make image responsive */
+                height: auto; /* Maintain aspect ratio */
+            }
+            .content{
+                margin-top: 4rem !important;
+            }
+    
+            /* Media query for smaller screens */
+            @media screen and (max-width: 768px) {
+                img {
+                    width: 100%; /* Make image full width */
+                    height: auto; /* Maintain aspect ratio */
+                }
+            }
+        </style>
 </head>
 
 <body>
-    <%- include('./partials/nav') %>
+    <div>
+        <%- include('./partials/nav') %>
+    </div>
+    
 
-        <div class="container mt-4">
+        <div class="container content">
             <h1>
                 <%=blog.title %>
             </h1>
