@@ -1,0 +1,13 @@
+<div class="c">
+    <% if (locals.error) { %>
+      <div class="alert alert-danger"  role="alert" style="background-color: black; color: white; text-align: center;">
+        <%= locals.error %>
+      </div>
+  <% } %>
+  
+  <% if (locals.message) { %>
+      <div class="alert alert-danger" role="alert" style="background-color: black; color: white; text-align: center;">
+        <%= locals.message %>
+      </div>
+  <% } %>
+  </div>

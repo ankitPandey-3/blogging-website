@@ -77,7 +77,9 @@
     <%- include('./partials/nav') %>
         <%- include('./partials/script') %>
             <div class="container">
+
                 <form id="signupForm" action="/user/signup" method="post">
+                    <%- include('./partials/alert') %>
                     <h1>logBlog</h1>
 
                     <label>Full Name</label>
@@ -93,7 +95,7 @@
                 </form>
             </div>
 
-            <script>
+            <!-- <script>
                 document.getElementById('signupForm').addEventListener('submit', function (event) {
                     event.preventDefault();
                     const formData = {
@@ -130,7 +132,7 @@
                             console.error('Error:', error);
                         });
                 })
-            </script>
+            </script> -->
 </body>
 
 </html>

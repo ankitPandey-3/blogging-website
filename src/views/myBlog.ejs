@@ -37,7 +37,6 @@
             }
         }
     </style>
-    
 </head>
 <body>
     <%- include('./partials/nav') %>
@@ -48,8 +47,11 @@
                 <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="..." style="width: 100%; height: 200px; object-fit: cover;">
                 <div class="card-body">
                   <h5 class="card-title"><%= blog.title %></h5>
-                  <p class="card-text">Wriiten by- <%= blog.createdBy.fullName %></p>
-                  <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read</a>
+                  <p class="card-text">Wriiten by- <%= blog.authorName %></p>
+                  <a href="/blogs/<%= blog._id %>" class="btn btn-primary">Read</a>
+                  <a href="/blogs/delete/<%= blog._id %>" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </a>
                 </div>
               </div>
         <% }) %>

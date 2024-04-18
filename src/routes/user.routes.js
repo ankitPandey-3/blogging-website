@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { getSignup, getLogin, postSignup, postLogin } from "../controllers/user.controller.js";
+import { getSignup, getLogin, postSignup, postLogin, postLogout, myBlogs } from "../controllers/user.controller.js";
+import { checkAuth } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
@@ -10,5 +11,11 @@ router.route('/signup')
 router.route('/login')
         .get(getLogin)
         .post(postLogin);
+
+router.route('/logout')
+        .get(postLogout);
+
+router.route('/:id')
+        .get(myBlogs)
 
 export default router;  

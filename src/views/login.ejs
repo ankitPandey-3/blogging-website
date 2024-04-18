@@ -3,7 +3,7 @@
 
 <head>
     <%- include('./partials/head') %>
-        <title>Sign Up</title>
+        <title>Login</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -78,6 +78,7 @@
         <%- include('./partials/script') %>
             <div class="container">
                 <form id="loginForm" action="/user/login" method="post">
+                    <%- include('./partials/alert') %>
                     <h1>logBlog</h1>
                     <label>Email</label>
                     <input type="text" required name="email" id="email" placeholder="example@example.com">
@@ -87,7 +88,7 @@
                     <a href="/user/signup">Don't have an account?</a>
                 </form>
             </div>
-            <script>
+            <!-- <script>
                 document.getElementById('loginForm').addEventListener('submit', function (event) {
                     event.preventDefault();
                     formData = {
@@ -117,7 +118,7 @@
                         console.error('Error:', error);
                     })
                 })
-            </script>
+            </script> -->
 </body>
 
 </html>
